@@ -69,6 +69,58 @@
     </div>
   </header>
   <main class="shell">
+    
+<section id="menu-viva" style="margin:20px 0;font-family:Arial,sans-serif">
+  <h2 style="color:#176b45">Como podemos ajudar?</h2>
+  <p>Escolha uma categoria para encontrar serviços e oportunidades.</p>
+
+  <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px">
+    <button type="button" data-viva="beneficios" style="padding:18px 8px;border:1px solid #d6e5dc;border-radius:14px;background:#eaf7ef;color:#176b45;font-weight:bold">🤝<br>Benefícios sociais</button>
+    <button type="button" data-viva="moradia" style="padding:18px 8px;border:1px solid #d6e5dc;border-radius:14px;background:#f5f8f6;color:#176b45;font-weight:bold">🏠<br>Moradia</button>
+    <button type="button" data-viva="alimentacao" style="padding:18px 8px;border:1px solid #d6e5dc;border-radius:14px;background:#f5f8f6;color:#176b45;font-weight:bold">🍲<br>Alimentação</button>
+    <button type="button" data-viva="empregos" style="padding:18px 8px;border:1px solid #d6e5dc;border-radius:14px;background:#f5f8f6;color:#176b45;font-weight:bold">💼<br>Empregos</button>
+    <button type="button" data-viva="cursos" style="padding:18px 8px;border:1px solid #d6e5dc;border-radius:14px;background:#f5f8f6;color:#176b45;font-weight:bold">🎓<br>Cursos gratuitos</button>
+    <button type="button" data-viva="direitos" style="padding:18px 8px;border:1px solid #d6e5dc;border-radius:14px;background:#f5f8f6;color:#176b45;font-weight:bold">⚖️<br>Direitos e serviços</button>
+  </div>
+
+  <div id="viva-conteudo" style="margin-top:16px;padding:18px;border:1px solid #d6e5dc;border-radius:14px">
+    <h3>🤝 Benefícios sociais</h3>
+    <p>Consulte informações sobre programas sociais.</p>
+    <p><a href="https://cadunico.dataprev.gov.br/" target="_blank" rel="noopener noreferrer">Consultar Cadastro Único →</a></p>
+    <p><a href="https://www.gov.br/pt-br/servicos/receber-o-bolsa-familia" target="_blank" rel="noopener noreferrer">Informações sobre Bolsa Família →</a></p>
+  </div>
+</section>
+
+<script>
+(function () {
+  var menu = document.getElementById('menu-viva');
+  if (!menu || menu.dataset.ativado) return;
+  menu.dataset.ativado = 'sim';
+
+  var conteudo = document.getElementById('viva-conteudo');
+
+  var paginas = {
+    beneficios: '<h3>🤝 Benefícios sociais</h3><p>Consulte programas sociais e regras de participação.</p><p><a href="https://cadunico.dataprev.gov.br/" target="_blank" rel="noopener noreferrer">Consultar Cadastro Único →</a></p><p><a href="https://www.gov.br/pt-br/servicos/receber-o-bolsa-familia" target="_blank" rel="noopener noreferrer">Bolsa Família →</a></p>',
+    moradia: '<h3>🏠 Moradia</h3><p>Conheça programas habitacionais e orientações oficiais.</p><p><a href="https://www.gov.br/cidades/pt-br/acesso-a-informacao/acoes-e-programas/habitacao/programa-minha-casa-minha-vida" target="_blank" rel="noopener noreferrer">Minha Casa, Minha Vida →</a></p>',
+    alimentacao: '<h3>🍲 Alimentação e assistência</h3><p>Procure o CRAS do seu município para saber quais apoios estão disponíveis.</p><p><a href="https://www.gov.br/mds/pt-br/acoes-e-programas/SUAS/beneficios-assistenciais/beneficios-eventuais" target="_blank" rel="noopener noreferrer">Benefícios eventuais →</a></p><p><a href="https://www.gov.br/mds/pt-br/acoes-e-programas/suas/unidades-de-atendimento/centro-de-referencia-de-assistencia-social-cras" target="_blank" rel="noopener noreferrer">Como funciona o CRAS →</a></p>',
+    empregos: '<h3>💼 Empregos</h3><p>Consulte serviços oficiais de busca de emprego.</p><p><a href="https://www.gov.br/pt-br/servicos/buscar-emprego-no-sistema-nacional-de-emprego-sine" target="_blank" rel="noopener noreferrer">Buscar emprego pelo SINE →</a></p><p><a href="https://www.gov.br/pt-br/temas/carteira-de-trabalho-digital" target="_blank" rel="noopener noreferrer">Carteira de Trabalho Digital →</a></p>',
+    cursos: '<h3>🎓 Cursos gratuitos</h3><p>Explore opções de formação on-line.</p><p><a href="https://www.escolavirtual.gov.br/catalogo" target="_blank" rel="noopener noreferrer">Escola Virtual de Governo →</a></p><p><a href="https://aprendamais.mec.gov.br/" target="_blank" rel="noopener noreferrer">Cursos do MEC →</a></p>',
+    direitos: '<h3>⚖️ Direitos e serviços</h3><p>Encontre orientações e canais públicos de atendimento.</p><p><a href="https://www.gov.br/pt-br/servicos" target="_blank" rel="noopener noreferrer">Catálogo de serviços do Governo Federal →</a></p><p><a href="https://www.gov.br/mds/pt-br/acoes-e-programas/suas/unidades-de-atendimento/centro-de-referencia-de-assistencia-social-cras" target="_blank" rel="noopener noreferrer">Atendimento pelo CRAS →</a></p>'
+  };
+
+  menu.querySelectorAll('button[data-viva]').forEach(function (botao) {
+    botao.addEventListener('click', function () {
+      var categoria = botao.getAttribute('data-viva');
+      conteudo.innerHTML = paginas[categoria];
+      menu.querySelectorAll('button[data-viva]').forEach(function (outro) {
+        outro.style.background = outro === botao ? '#eaf7ef' : '#f5f8f6';
+        outro.setAttribute('aria-pressed', outro === botao ? 'true' : 'false');
+      });
+    });
+  });
+})();
+</script>
+
     <section class="searchbox" aria-label="Busca por necessidade">
       <label for="need">Conte o que você está precisando</label>
       <div class="searchrow">
