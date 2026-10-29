@@ -120,69 +120,13 @@
   });
 })();
 </script>
-
-    <section class="searchbox" aria-label="Busca por necessidade">
-      <label for="need">Conte o que você está precisando</label>
-      <div class="searchrow">
-        <input id="need" type="search" placeholder="Ex.: preciso encontrar emprego" autocomplete="off" />
-        <button id="searchBtn" class="btn">Encontrar caminhos</button>
-      </div>
-      <div class="tiny" style="margin-top:9px">Não precisa criar uma conta para explorar esta demonstração.</div>
-    </section>
-
-    <div class="sectionhead">
-      <div><h2>Explore por assunto</h2><p class="sub">Escolha uma área para ver os próximos passos.</p></div>
-    </div>
-
-    <section class="grid" aria-label="Áreas do aplicativo">
-      <button class="tile" data-area="emprego"><span class="emoji">💼</span><span><strong>Emprego e carreira</strong><span>Vagas, currículo e qualificação.</span></span></button>
-      <button class="tile" data-area="dinheiro"><span class="emoji">💰</span><span><strong>Dinheiro e dívidas</strong><span>Organize despesas e planeje pagamentos.</span></span></button>
-      <button class="tile" data-area="beneficios"><span class="emoji">🧾</span><span><strong>Benefícios e direitos</strong><span>Entenda serviços e canais oficiais.</span></span></button>
-      <button class="tile" data-area="alimentacao"><span class="emoji">🥕</span><span><strong>Alimentação e apoio</strong><span>Encontre caminhos para buscar ajuda.</span></span></button>
-      <button class="tile" data-area="saude"><span class="emoji">❤️</span><span><strong>Saúde e bem-estar</strong><span>Orientação e acesso a serviços públicos.</span></span></button>
-      <button class="tile" data-area="educacao"><span class="emoji">📚</span><span><strong>Educação e cursos</strong><span>Aprendizagem e capacitação.</span></span></button>
-      <button class="tile" data-area="moradia"><span class="emoji">🏠</span><span><strong>Moradia e contas</strong><span>Orientações sobre serviços e despesas.</span></span></button>
-      <button class="tile" data-area="servicos"><span class="emoji">🏛️</span><span><strong>Serviços públicos</strong><span>Descubra onde pedir atendimento.</span></span></button>
-      <button class="tile" data-area="seguranca"><span class="emoji">🛡️</span><span><strong>Segurança contra golpes</strong><span>Reconheça riscos e procure ajuda.</span></span></button>
-    </section>
-
-    <section id="results" class="results" aria-live="polite"></section>
+  <section id="results" class="results" aria-live="polite"></section>
 
     <div class="notice"><span aria-hidden="true">ℹ️</span><div><b>Informação clara, sem promessas falsas</b>O VIVA Brasil é um protótipo inicial. Confira requisitos, disponibilidade e informações nos canais oficiais. Não informe senhas, dados bancários ou documentos sensíveis nesta demonstração.</div></div>
   </main>
   <footer><div class="shell">VIVA Brasil · Protótipo gratuito em desenvolvimento. Este site ainda não está conectado a bases de vagas, benefícios ou atendimentos. Os links externos levam a serviços oficiais quando disponíveis.</div></footer>
   <script>
-    const guides = {
-      emprego: { title:"Emprego e carreira", intro:"Comece pelos canais oficiais e prepare um perfil simples para procurar oportunidades.", steps:["Tenha em mãos um currículo atualizado e um telefone ou e-mail de contato.","Consulte vagas e serviços de intermediação de mão de obra.","Desconfie de vagas que exigem pagamento antecipado para contratar.","Anote as vagas às quais se candidatou e acompanhe os retornos."], links:[["Carteira de Trabalho Digital","https://www.gov.br/trabalho-e-emprego/pt-br/servicos/trabalhador/carteira-de-trabalho"],["Portal de serviços do trabalho","https://servicos.mte.gov.br/"]]},
-      dinheiro: { title:"Dinheiro e dívidas", intro:"Entenda primeiro quanto entra, quanto sai e quais contas são mais urgentes.", steps:["Liste renda e despesas essenciais, como moradia, alimentação e transporte.","Anote dívidas, juros, vencimentos e valores em atraso.","Antes de aceitar um acordo, confira o custo total e se a parcela cabe no orçamento.","Nunca compartilhe senha bancária ou código de autenticação."], links:[["Banco Central — Cidadania Financeira","https://www.bcb.gov.br/cidadaniafinanceira"]]},
-      beneficios: { title:"Benefícios e direitos", intro:"A elegibilidade depende das regras de cada programa e da situação da família.", steps:["Identifique o programa ou serviço que deseja consultar.","Confira requisitos, documentos e canais oficiais atualizados.","Procure o CRAS do município para orientação sobre Cadastro Único e assistência social, quando pertinente.","Não pague intermediários para prometer aprovação de benefício."], links:[["Portal gov.br","https://www.gov.br/"],["Ministério do Desenvolvimento e Assistência Social","https://www.gov.br/mds/pt-br"]]},
-      alimentacao: { title:"Alimentação e apoio", intro:"Se você ou sua família precisam de apoio imediato, procure serviços públicos e organizações locais verificáveis.", steps:["Entre em contato com a assistência social do município ou com o CRAS da região.","Pergunte quais serviços, benefícios eventuais ou iniciativas comunitárias estão disponíveis.","Se houver risco imediato à saúde, procure um serviço de urgência."], links:[["Localizar serviços e informações no gov.br","https://www.gov.br/"]]},
-      saude: { title:"Saúde e bem-estar", intro:"Use os canais oficiais de saúde e procure atendimento conforme a urgência.", steps:["Para orientação não urgente, procure a Unidade Básica de Saúde da sua região.","Leve documentos e informações relevantes ao atendimento, se disponíveis.","Em uma emergência, procure o serviço de urgência ou ligue 192 (SAMU)."], links:[["Ministério da Saúde","https://www.gov.br/saude/"]]},
-      educacao: { title:"Educação e cursos", intro:"Você pode procurar oportunidades de estudo e capacitação conforme seu objetivo.", steps:["Defina se busca concluir os estudos, aprender uma profissão ou melhorar habilidades.","Confira gratuidade, pré-requisitos, datas e reconhecimento do curso antes da inscrição.","Evite pagar por promessas de emprego garantido após um curso."], links:[["Portal gov.br","https://www.gov.br/"],["Escola Virtual de Governo","https://www.escolavirtual.gov.br/"]]},
-      moradia: { title:"Moradia e contas", intro:"Organize as contas prioritárias e procure os canais oficiais da sua cidade ou concessionária.", steps:["Registre vencimentos, valores e protocolos de atendimento.","Consulte a empresa responsável antes de pagar boletos recebidos por mensagem.","Para apoio social ou orientação habitacional, consulte a prefeitura e a assistência social local."], links:[["Portal gov.br","https://www.gov.br/"]]},
-      servicos: { title:"Serviços públicos", intro:"O serviço correto depende do assunto e do município ou estado.", steps:["Identifique o órgão responsável pelo problema.","Confira documentos, horários, custos oficiais e formas de atendimento.","Guarde protocolos de solicitação e nunca publique dados pessoais em comentários abertos."], links:[["Portal de serviços do governo federal","https://www.gov.br/"]]},
-      seguranca: { title:"Segurança contra golpes", intro:"Desconfie de urgência artificial, pedidos de senha e promessas de dinheiro fácil.", steps:["Não clique em links inesperados nem compartilhe códigos de confirmação.","Confirme pedidos diretamente no aplicativo ou site oficial, digitando o endereço você mesmo.","Se suspeitar de fraude financeira, contate imediatamente seu banco pelos canais oficiais e registre ocorrência quando necessário."], links:[["CERT.br — Cartilha de Segurança para Internet","https://cartilha.cert.br/"]]}
-    };
-    const result = document.getElementById("results");
-    function showArea(key) {
-      const g = guides[key] || guides.servicos;
-      result.innerHTML = `<h3>${g.title}</h3><p>${g.intro}</p><strong>Próximos passos</strong><ul>${g.steps.map(s=>`<li>${s}</li>`).join("")}</ul><div class="links">${g.links.map(l=>`<a href="${l[1]}" target="_blank" rel="noopener noreferrer">${l[0]} ↗</a>`).join("")}</div><p class="tiny">Orientação geral. Confirme os detalhes no canal oficial antes de tomar decisões.</p>`;
-      result.classList.add("show");
-      result.scrollIntoView({behavior:"smooth",block:"nearest"});
-    }
-    document.querySelectorAll("[data-area]").forEach(btn => btn.addEventListener("click",()=>showArea(btn.dataset.area)));
-    function searchNeed() {
-      const q = document.getElementById("need").value.toLowerCase();
-      const key = /empreg|trabalh|curr[ií]culo|vaga|carreira/.test(q) ? "emprego" :
-        /d[ií]vida|dinheiro|sal[aá]rio|conta|gasto|or[cç]amento/.test(q) ? "dinheiro" :
-        /benef[ií]cio|cad[uú]nico|direito|bolsa fam[ií]lia|aux[ií]lio/.test(q) ? "beneficios" :
-        /comida|alimenta[cç][aã]o|fome|doa[cç][aã]o|cesta b[aá]sica/.test(q) ? "alimentacao" :
-        /sa[uú]de|m[eé]dico|hospital|sus|rem[eé]dio/.test(q) ? "saude" :
-        /curso|estud|escola|educa[cç][aã]o|capacita[cç][aã]o/.test(q) ? "educacao" :
-        /casa|moradia|aluguel|energia|[aá]gua/.test(q) ? "moradia" :
-        /golpe|fraude|pix|senha|seguran[cç]a/.test(q) ? "seguranca" : "servicos";
-      showArea(key);
-    }
+    
     document.getElementById("searchBtn").addEventListener("click",searchNeed);
     document.getElementById("need").addEventListener("keydown",e=>{if(e.key==="Enter")searchNeed()});
     if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
