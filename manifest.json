@@ -1,0 +1,13 @@
+
+{
+  "name": "VIVA Brasil",
+  "short_name": "VIVA Brasil",
+  "description": "Oportunidades, renda extra, cursos gratuitos, economia, empregos e direitos para todos os brasileiros.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f6faf7",
+  "theme_color": "#087443",
+  "lang": "pt-BR"
+}
