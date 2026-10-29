@@ -3,333 +3,420 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#075c38">
-<meta name="description" content="VIVA Brasil: descubra oportunidades, cursos gratuitos, serviços públicos e informações úteis.">
-<title>VIVA Brasil — Descubra novas possibilidades</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#087443">
+<meta name="description" content="VIVA Brasil: oportunidades, renda extra, cursos gratuitos, economia, empregos e direitos.">
+<title>VIVA Brasil | Oportunidades para todos</title>
 <style>
 :root {
-  --green:#075c38;
-  --green2:#0b8050;
-  --lime:#d9f77b;
-  --ink:#19372a;
-  --muted:#708076;
-  --paper:#f5f8f4;
-  --white:#fff;
-  --line:#e3ebe3;
+  --verde: #087443;
+  --escuro: #064e2e;
+  --claro: #e9f8ef;
+  --fundo: #f6faf7;
+  --texto: #17251d;
+  --cinza: #5d6c63;
+  --borda: #e0e9e3;
 }
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0;background:var(--paper);color:var(--ink);
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--fundo);
+  color: var(--texto);
+  line-height: 1.6;
 }
-button,input{font:inherit}
-button,a{-webkit-tap-highlight-color:transparent}
-a{color:inherit}
-.wrap{width:min(100% - 30px,1000px);margin:auto}
-header{
-  background:linear-gradient(145deg,#06472e 0%,#087648 65%,#15905a 100%);
-  color:white;padding:19px 0 30px;border-radius:0 0 28px 28px
+a { color: var(--verde); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.container { width: 92%; max-width: 1100px; margin: auto; }
+header { background: white; border-bottom: 1px solid var(--borda); }
+.nav {
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  flex-wrap: wrap;
 }
-.top{display:flex;align-items:center;justify-content:space-between;gap:12px}
-.brand{display:flex;align-items:center;gap:10px;font-size:20px;font-weight:850;letter-spacing:-.5px}
-.logo{
-  width:42px;height:42px;border-radius:14px;background:var(--lime);
-  color:var(--green);display:grid;place-items:center;font-size:25px;font-weight:950
+.logo { font-size: 24px; font-weight: 900; color: var(--verde); }
+.logo span { background: var(--verde); color: white; padding: 7px 10px; border-radius: 10px; margin-right: 5px; }
+nav { display: flex; gap: 18px; flex-wrap: wrap; }
+nav a { font-weight: bold; color: var(--texto); }
+.hero {
+  background: linear-gradient(130deg, #063f28, #087443, #13a15d);
+  color: white;
+  padding: 55px 0;
 }
-.pill{border:1px solid #ffffff50;border-radius:30px;padding:7px 10px;font-size:10px;letter-spacing:.7px}
-.hero{padding:36px 0 5px}
-.eyebrow{font-size:11px;letter-spacing:1.5px;font-weight:850;color:var(--lime);text-transform:uppercase}
-h1{font-size:clamp(35px,8vw,54px);line-height:1.03;letter-spacing:-1.8px;margin:13px 0}
-.hero p{max-width:500px;color:#e1f1e6;font-size:15px;line-height:1.65;margin:0}
-.search{
-  display:flex;gap:7px;padding:7px;margin-top:23px;background:white;
-  border-radius:16px;box-shadow:0 12px 28px #003b241b
+.hero h1 { font-size: clamp(34px, 6vw, 56px); line-height: 1.12; margin: 15px 0; }
+.hero p { max-width: 650px; color: #e0f5e7; }
+.hero-grid { display: grid; grid-template-columns: 1.3fr .7fr; gap: 25px; align-items: center; }
+.painel { background: #ffffff17; border: 1px solid #ffffff50; padding: 22px; border-radius: 18px; }
+.busca { display: flex; gap: 8px; margin-top: 20px; }
+.busca input { flex: 1; min-width: 0; padding: 14px; border: 0; border-radius: 10px; font-size: 16px; }
+button, .botao { cursor: pointer; border: 0; border-radius: 10px; padding: 12px 16px; font-weight: bold; font-size: 15px; }
+.botao { display: inline-block; background: var(--verde); color: white; }
+.hero .botao { background: white; color: var(--verde); }
+section { padding: 45px 0; }
+.etiqueta { color: var(--verde); background: var(--claro); border-radius: 30px; padding: 6px 12px; font-size: 12px; font-weight: bold; }
+h2 { font-size: clamp(25px, 4vw, 34px); margin: 12px 0 5px; line-height: 1.2; }
+.subtitulo { color: var(--cinza); max-width: 720px; }
+.categorias { display: grid; grid-template-columns: repeat(4, 1fr); gap: 13px; margin-top: 24px; }
+.categoria {
+  background: white; border: 1px solid var(--borda); border-radius: 15px;
+  padding: 17px; text-align: left; color: var(--texto); min-height: 150px;
 }
-.search input{width:100%;min-width:0;border:0;outline:0;padding:12px;color:var(--ink);background:transparent}
-.search button{border:0;border-radius:11px;background:var(--lime);color:#21420d;font-weight:850;padding:12px;cursor:pointer}
-main{padding:27px 0 38px}
-.kicker{font-size:10px;letter-spacing:1.4px;text-transform:uppercase;font-weight:850;color:var(--green)}
-.heading{font-size:24px;letter-spacing:-.7px;margin:7px 0}
-.sub{font-size:13px;color:var(--muted);line-height:1.6;margin:0}
-.section{margin-bottom:30px}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;margin-top:17px}
-.tile{
-  position:relative;min-height:139px;border:1px solid var(--line);
-  border-radius:19px;background:white;text-align:left;padding:16px 14px;
-  cursor:pointer;color:var(--ink);transition:transform .15s,border-color .15s
+.categoria:hover, .categoria.ativa { border-color: #48a875; background: #f0faf3; }
+.icone { font-size: 29px; display: block; margin-bottom: 8px; }
+.categoria strong { display: block; margin-bottom: 5px; }
+.categoria small { color: var(--cinza); font-size: 13px; }
+.area { display: grid; grid-template-columns: .7fr 1.3fr; gap: 18px; align-items: start; }
+.caixa { background: white; border: 1px solid var(--borda); border-radius: 16px; padding: 20px; }
+.filtros { display: grid; gap: 8px; margin-top: 16px; }
+.filtros button { background: white; border: 1px solid var(--borda); text-align: left; }
+.filtros button.ativo { background: var(--claro); border-color: var(--verde); }
+.lista { display: grid; gap: 12px; margin-top: 16px; }
+.recurso { border: 1px solid var(--borda); border-radius: 12px; padding: 15px; }
+.recurso h3 { margin: 0 0 5px; font-size: 18px; }
+.recurso p { margin: 0 0 10px; color: var(--cinza); font-size: 14px; }
+.recurso a { font-weight: bold; }
+.selo { display: inline-block; background: var(--claro); color: var(--verde); padding: 4px 8px; border-radius: 6px; font-size: 12px; margin-bottom: 8px; }
+.dicas { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-top: 20px; }
+.dica { background: white; border: 1px solid var(--borda); border-radius: 15px; padding: 20px; }
+.dica h3 { margin-top: 0; }
+.aviso { background: #fff8e6; border: 1px solid #f0d78c; padding: 16px; border-radius: 12px; margin-top: 18px; }
+.chamada { background: var(--escuro); color: white; border-radius: 18px; padding: 25px; }
+footer { background: #062f20; color: white; padding: 30px 0; margin-top: 30px; }
+footer a { color: #d9f5e2; }
+footer p { color: #c1d8c9; font-size: 14px; }
+.vazio { color: var(--cinza); padding: 15px 0; }
+@media(max-width:800px) {
+  .hero-grid, .area { grid-template-columns: 1fr; }
+  .categorias { grid-template-columns: repeat(2, 1fr); }
+  nav { gap: 10px; font-size: 13px; }
 }
-.tile:active{transform:scale(.98)}
-.tile.active{border:2px solid var(--green);background:#eff8ee}
-.tile-icon{display:grid;place-items:center;width:42px;height:42px;border-radius:14px;font-size:23px;margin-bottom:12px}
-.tile strong{display:block;font-size:14px}
-.tile small{display:block;color:var(--muted);font-size:11px;line-height:1.45;margin-top:6px}
-.tile-arrow{position:absolute;right:13px;top:14px;color:#96a69b;font-size:17px}
-.panel{
-  background:white;border:1px solid var(--line);border-radius:22px;
-  padding:20px;scroll-margin-top:14px
-}
-.panelhead{display:flex;align-items:center;gap:12px}
-.bigicon{width:50px;height:50px;display:grid;place-items:center;border-radius:16px;font-size:27px;background:#e9f5e9;flex-shrink:0}
-h2{font-size:20px;letter-spacing:-.4px;margin:0}
-.panel p{font-size:14px;line-height:1.7;color:#52665a}
-.panel h3{font-size:14px;margin:22px 0 10px}
-.steps{padding-left:22px;margin:0}
-.steps li{padding:0 0 11px 3px;font-size:13px;line-height:1.6}
-.links{display:grid;gap:9px}
-.link{
-  display:flex;align-items:center;justify-content:space-between;gap:10px;
-  padding:13px;background:#f2f7f1;border-radius:12px;
-  text-decoration:none;color:var(--green);font-weight:750;font-size:13px
-}
-.link span{font-size:18px}
-.disclaimer{background:#fff8df;color:#6b571f;border:1px solid #f0e5b4;border-radius:13px;padding:13px;margin-top:18px;font-size:11px;line-height:1.65}
-.discover{
-  background:#e7f2e5;border-radius:22px;padding:21px;margin:30px 0
-}
-.discover .heading{font-size:23px}
-.fact{background:white;border:1px solid #dce9d9;border-radius:16px;padding:17px;margin-top:15px}
-.fact-label{font-size:10px;letter-spacing:1px;color:var(--green);font-weight:850;text-transform:uppercase}
-.fact h3{font-size:17px;line-height:1.4;margin:9px 0}
-.fact p{font-size:13px;line-height:1.7;color:#617267}
-.textlink{display:inline-block;color:var(--green);font-size:13px;font-weight:800;margin-top:7px;text-decoration:none}
-.quickgrid{display:grid;grid-template-columns:1fr;gap:10px;margin-top:15px}
-.quickcard{display:flex;align-items:center;gap:13px;background:white;border:1px solid var(--line);border-radius:15px;padding:14px;text-decoration:none}
-.quickicon{width:42px;height:42px;border-radius:13px;background:#eef5e9;display:grid;place-items:center;font-size:22px;flex-shrink:0}
-.quickcard strong{font-size:13px;display:block}
-.quickcard small{font-size:11px;line-height:1.5;color:var(--muted);display:block;margin-top:4px}
-.quickcard .arrow{margin-left:auto;color:var(--green)}
-footer{background:#e9f0e8;padding:25px 0;color:#617368;font-size:11px;line-height:1.8}
-footer strong{color:var(--green)}
-.bottom{border-top:1px solid #d5e1d5;margin-top:14px;padding-top:12px}
-.empty{padding:15px;background:white;border:1px solid var(--line);border-radius:13px;font-size:13px;line-height:1.6}
-@media(min-width:650px){
- .grid{grid-template-columns:repeat(3,minmax(0,1fr))}
- .quickgrid{grid-template-columns:repeat(3,minmax(0,1fr))}
- .quickcard{align-items:flex-start}
- .hero{padding-top:45px}
- .panel{padding:26px}
+@media(max-width:520px) {
+  .hero { padding: 35px 0; }
+  .busca { flex-direction: column; }
+  .busca button { width: 100%; }
+  .dicas { grid-template-columns: 1fr; }
+  .categoria { padding: 12px; min-height: 145px; }
 }
 </style>
 </head>
 <body>
+
 <header>
- <div class="wrap">
-  <div class="top">
-   <div class="brand"><div class="logo">V</div><span>VIVA Brasil</span></div>
-   <div class="pill">INFORMAÇÃO QUE TRANSFORMA</div>
+  <div class="container nav">
+    <a class="logo" href="#inicio"><span>VB</span> VIVA Brasil</a>
+    <nav>
+      <a href="#oportunidades">Oportunidades</a>
+      <a href="#economia">Economia</a>
+      <a href="#cursos">Cursos</a>
+      <a href="#direitos">Direitos</a>
+    </nav>
   </div>
-  <div class="hero">
-   <div class="eyebrow">Seu próximo passo começa aqui</div>
-   <h1>Descubra o que<br>pode mudar seu dia.</h1>
-   <p>Oportunidades, conhecimento e caminhos para encontrar serviços que fazem diferença na sua vida.</p>
-  </div>
-  <form class="search" id="searchForm">
-   <input id="searchInput" type="search" placeholder="O que você está procurando?" aria-label="Pesquisar no VIVA Brasil">
-   <button type="submit">Descobrir ↗</button>
-  </form>
- </div>
 </header>
 
-<main class="wrap">
- <section class="section">
-  <div class="kicker">Explore o VIVA</div>
-  <h2 class="heading">O que você precisa hoje?</h2>
-  <p class="sub">Escolha um assunto e descubra por onde começar.</p>
-  <div class="grid" id="tiles">
-   <button class="tile active" data-key="emprego"><span class="tile-arrow">↗</span><span class="tile-icon" style="background:#e4f3df">💼</span><strong>Empregos</strong><small>Vagas e serviços para trabalhadores</small></button>
-   <button class="tile" data-key="cursos"><span class="tile-arrow">↗</span><span class="tile-icon" style="background:#fff1c9">🎓</span><strong>Cursos gratuitos</strong><small>Aprenda e desenvolva habilidades</small></button>
-   <button class="tile" data-key="beneficios"><span class="tile-arrow">↗</span><span class="tile-icon" style="background:#e6eaff">🤝</span><strong>Benefícios sociais</strong><small>Programas e assistência</small></button>
-   <button class="tile" data-key="moradia"><span class="tile-arrow">↗</span><span class="tile-icon" style="background:#fbe6dd">🏠</span><strong>Moradia e contas</strong><small>Habitação e apoio local</small></button>
-   <button class="tile" data-key="alimentacao"><span class="tile-arrow">↗</span><span class="tile-icon" style="background:#dff4ed">🥗</span><strong>Alimentação</strong><small>Onde procurar apoio</small></button>
-   <button class="tile" data-key="direitos"><span class="tile-arrow">↗</span><span class="tile-icon" style="background:#eee5fa">⚖️</span><strong>Direitos e serviços</strong><small>Orientações e canais públicos</small></button>
+<main>
+<section class="hero" id="inicio">
+  <div class="container hero-grid">
+    <div>
+      <span>🇧🇷 INFORMAÇÃO ÚTIL PARA TODOS</span>
+      <h1>Mais oportunidades.<br>Menos gastos.<br>Uma vida melhor.</h1>
+      <p>Encontre caminhos para ganhar dinheiro, estudar de graça, economizar, conseguir emprego e conhecer seus direitos. Tudo em um só lugar.</p>
+      <form class="busca" id="formBusca">
+        <input id="campoBusca" type="search" placeholder="Ex.: emprego, curso, Bolsa Família..." aria-label="Buscar conteúdo">
+        <button class="botao" type="submit">Buscar</button>
+      </form>
+    </div>
+    <div class="painel">
+      <h2>Seu próximo passo começa aqui!</h2>
+      <p>Explore recursos gratuitos e informações úteis. Confira sempre as regras nos sites responsáveis.</p>
+      <a class="botao" href="#oportunidades">Explorar agora ↓</a>
+    </div>
   </div>
- </section>
+</section>
 
- <section class="panel" id="content" aria-live="polite">
-  <div class="panelhead">
-   <div class="bigicon" id="contentIcon">💼</div>
-   <div><h2 id="contentTitle">Empregos</h2><p class="sub" id="contentSub">Dê o próximo passo profissional.</p></div>
+<section id="oportunidades">
+  <div class="container">
+    <span class="etiqueta">ENCONTRE O QUE PRECISA</span>
+    <h2>Como podemos ajudar você?</h2>
+    <p class="subtitulo">Escolha uma categoria para encontrar orientações e recursos úteis.</p>
+    <div class="categorias" id="categorias">
+      <button class="categoria ativa" data-cat="renda"><span class="icone">💸</span><strong>Renda extra</strong><small>Ideias para ganhar dinheiro.</small></button>
+      <button class="categoria" data-cat="cursos"><span class="icone">🎓</span><strong>Faculdade e cursos</strong><small>Estude gratuitamente.</small></button>
+      <button class="categoria" data-cat="economia"><span class="icone">🛒</span><strong>Economizar</strong><small>Cuide do seu dinheiro.</small></button>
+      <button class="categoria" data-cat="beneficios"><span class="icone">🤝</span><strong>Benefícios sociais</strong><small>Conheça programas públicos.</small></button>
+      <button class="categoria" data-cat="empregos"><span class="icone">💼</span><strong>Empregos</strong><small>Vagas e carteira de trabalho.</small></button>
+      <button class="categoria" data-cat="direitos"><span class="icone">⚖️</span><strong>Direitos do cidadão</strong><small>Trabalho e consumo.</small></button>
+      <button class="categoria" data-cat="empreender"><span class="icone">🏪</span><strong>Empreender</strong><small>MEI e pequenos negócios.</small></button>
+      <button class="categoria" data-cat="digital"><span class="icone">📱</span><strong>Vida digital</strong><small>Serviços online e segurança.</small></button>
+    </div>
   </div>
-  <p id="contentIntro"></p>
-  <h3>Comece por aqui</h3>
-  <ol class="steps" id="contentSteps"></ol>
-  <h3>Fontes e serviços</h3>
-  <div class="links" id="contentLinks"></div>
-  <div class="disclaimer">O VIVA Brasil é um projeto independente, não um órgão do governo. As orientações são gerais; confirme requisitos e informações nos canais oficiais. Nunca pague para garantir benefício ou emprego.</div>
- </section>
+</section>
 
- <section class="discover">
-  <div class="kicker">Informação que vale conhecer</div>
-  <h2 class="heading">Você sabia?</h2>
-  <p class="sub">Pequenos passos podem abrir novas possibilidades.</p>
-  <div class="fact">
-   <div class="fact-label">Dica em destaque</div>
-   <h3>Existem plataformas públicas com cursos on-line gratuitos.</h3>
-   <p>Você pode explorar opções de aprendizagem, conferir os requisitos e verificar se há certificado antes de se inscrever.</p>
-   <a class="textlink" href="https://www.escolavirtual.gov.br/" target="_blank" rel="noopener noreferrer">Conhecer a Escola Virtual de Governo ↗</a>
+<section style="padding-top:0">
+  <div class="container area">
+    <aside class="caixa">
+      <span class="etiqueta">GUIA PRÁTICO</span>
+      <h2 id="tituloCategoria">Renda extra</h2>
+      <p id="descricaoCategoria" class="subtitulo">Ideias para começar com habilidades que você já tem.</p>
+      <div class="filtros">
+        <button class="ativo" data-filtro="todos">Todas as opções</button>
+        <button data-filtro="online">Pelo celular ou internet</button>
+        <button data-filtro="oficial">Sites oficiais</button>
+        <button data-filtro="inicio">Para começar do zero</button>
+      </div>
+      <div class="aviso"><strong>⚠️ Atenção a golpes</strong><br>Desconfie de promessas de lucro garantido, cobranças antecipadas e pedidos de senhas ou códigos.</div>
+    </aside>
+    <div class="caixa">
+      <h2 id="tituloResultados">Oportunidades para você</h2>
+      <p id="contagem" class="subtitulo"></p>
+      <div class="lista" id="lista"></div>
+      <p class="subtitulo">O VIVA Brasil direciona para páginas externas. Confirme requisitos, prazos e condições na fonte responsável.</p>
+    </div>
   </div>
- </section>
+</section>
 
- <section class="section">
-  <div class="kicker">Atalhos úteis</div>
-  <h2 class="heading">Comece agora</h2>
-  <p class="sub">Acesse diretamente plataformas e serviços públicos.</p>
-  <div class="quickgrid">
-   <a class="quickcard" href="https://www.gov.br/trabalho-e-emprego/pt-br/servicos/trabalhador/carteira-de-trabalho" target="_blank" rel="noopener noreferrer"><span class="quickicon">📄</span><span><strong>Carteira de Trabalho Digital</strong><small>Serviços oficiais para trabalhadores</small></span><span class="arrow">↗</span></a>
-   <a class="quickcard" href="https://aprendamais.mec.gov.br/" target="_blank" rel="noopener noreferrer"><span class="quickicon">📚</span><span><strong>Aprenda Mais</strong><small>Explore cursos on-line</small></span><span class="arrow">↗</span></a>
-   <a class="quickcard" href="https://www.gov.br/mds/pt-br" target="_blank" rel="noopener noreferrer"><span class="quickicon">🧭</span><span><strong>Assistência social</strong><small>Consulte informações oficiais</small></span><span class="arrow">↗</span></a>
+<section id="economia">
+  <div class="container">
+    <span class="etiqueta">ORGANIZE SUA VIDA FINANCEIRA</span>
+    <h2>Cuide melhor do seu dinheiro</h2>
+    <p class="subtitulo">Pequenas mudanças podem ajudar a organizar as contas do mês.</p>
+    <div class="dicas">
+      <article class="dica">
+        <h3>🧾 Organize o orçamento</h3>
+        <p>Anote tudo que entra e sai: salário, aluguel, alimentação, transporte, contas e dívidas. Revise os gastos semanalmente.</p>
+        <a href="https://www.bcb.gov.br/cidadaniafinanceira" target="_blank" rel="noopener">Educação financeira ↗</a>
+      </article>
+      <article class="dica">
+        <h3>🛍️ Compare preços</h3>
+        <p>Faça uma lista antes de ir ao mercado, compare preço por quilo ou litro e evite compras por impulso.</p>
+        <a href="https://www.gov.br/mj/pt-br/assuntos/seus-direitos/consumidor" target="_blank" rel="noopener">Direitos do consumidor ↗</a>
+      </article>
+      <article class="dica">
+        <h3>⚡ Confira tarifas sociais</h3>
+        <p>Famílias que cumprem determinados critérios podem ter direito a descontos em serviços essenciais.</p>
+        <a href="https://www.gov.br/aneel/pt-br/assuntos/tarifas/tarifa-social" target="_blank" rel="noopener">Tarifa Social de Energia ↗</a>
+      </article>
+      <article class="dica">
+        <h3>📉 Cuide das dívidas</h3>
+        <p>Liste valores, juros e vencimentos. Antes de aceitar um acordo, confira o custo total e se a parcela cabe no orçamento.</p>
+        <a href="https://www.bcb.gov.br/cidadaniafinanceira" target="_blank" rel="noopener">Aprenda a lidar com dinheiro ↗</a>
+      </article>
+    </div>
   </div>
- </section>
+</section>
+
+<section id="cursos">
+  <div class="container">
+    <span class="etiqueta">EDUCAÇÃO E QUALIFICAÇÃO</span>
+    <h2>Aprenda sem pagar</h2>
+    <p class="subtitulo">Consulte cursos gratuitos e opções de graduação. A oferta e os requisitos variam.</p>
+    <div class="dicas">
+      <article class="dica"><h3>🎓 Sisu</h3><p>Consulte informações sobre ingresso em instituições públicas de ensino superior.</p><a href="https://acessounico.mec.gov.br/sisu" target="_blank" rel="noopener">Portal do Sisu ↗</a></article>
+      <article class="dica"><h3>💻 Escola Virtual de Governo</h3><p>Cursos online em diferentes áreas. Confira as condições de inscrição e certificado.</p><a href="https://www.escolavirtual.gov.br/" target="_blank" rel="noopener">Ver cursos ↗</a></article>
+      <article class="dica"><h3>📚 Fundação Bradesco</h3><p>Explore cursos online em áreas como administração, tecnologia e desenvolvimento profissional.</p><a href="https://www.ev.org.br/" target="_blank" rel="noopener">Escola Virtual ↗</a></article>
+      <article class="dica"><h3>🏛️ Universidade Aberta do Brasil</h3><p>Consulte informações sobre cursos a distância oferecidos por instituições públicas participantes.</p><a href="https://www.gov.br/capes/" target="_blank" rel="noopener">Portal da CAPES ↗</a></article>
+    </div>
+  </div>
+</section>
+
+<section id="direitos">
+  <div class="container">
+    <span class="etiqueta">INFORMAÇÃO CONFIÁVEL</span>
+    <h2>Benefícios, empregos e direitos</h2>
+    <p class="subtitulo">Acesse canais oficiais para consultar serviços, requisitos e orientações.</p>
+    <div class="dicas">
+      <article class="dica"><h3>🤝 Cadastro Único</h3><p>Consulte informações para inscrição, atualização cadastral e atendimento.</p><a href="https://www.gov.br/mds/pt-br/acoes-e-programas/cadastro-unico" target="_blank" rel="noopener">Saiba mais ↗</a></article>
+      <article class="dica"><h3>👨‍👩‍👧 Bolsa Família</h3><p>Confira as regras e informações oficiais sobre o programa.</p><a href="https://www.gov.br/mds/pt-br/acoes-e-programas/bolsa-familia" target="_blank" rel="noopener">Portal oficial ↗</a></article>
+      <article class="dica"><h3>💼 Carteira de Trabalho Digital</h3><p>Veja orientações para acessar os serviços digitais de trabalho.</p><a href="https://www.gov.br/pt-br/temas/carteira-de-trabalho-digital" target="_blank" rel="noopener">Acessar serviço ↗</a></article>
+      <article class="dica"><h3>🏦 FGTS</h3><p>Consulte informações e serviços diretamente no portal oficial.</p><a href="https://www.fgts.gov.br/" target="_blank" rel="noopener">Portal do FGTS ↗</a></article>
+      <article class="dica"><h3>🏪 MEI e empreendedorismo</h3><p>Confira atividades permitidas, formalização, obrigações e orientações para pequenos negócios.</p><a href="https://www.gov.br/empresas-e-negocios/pt-br/empreendedor" target="_blank" rel="noopener">Portal do Empreendedor ↗</a></article>
+      <article class="dica"><h3>🏛️ Serviços públicos</h3><p>Pesquise serviços federais, documentos necessários e canais de atendimento.</p><a href="https://www.gov.br/pt-br/servicos" target="_blank" rel="noopener">Portal Gov.br ↗</a></article>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container chamada">
+    <h2>Oportunidade boa é oportunidade segura.</h2>
+    <p>Confira as informações, evite compartilhar senhas e nunca pague alguém apenas pela promessa de liberar emprego ou benefício.</p>
+    <a class="botao" href="https://www.gov.br/" target="_blank" rel="noopener">Acessar Governo Federal ↗</a>
+  </div>
+</section>
 </main>
 
 <footer>
- <div class="wrap">
-  <strong>VIVA Brasil 🇧🇷</strong><br>
-  Mais informação, mais caminhos, mais possibilidades.
-  <div class="bottom">Projeto independente em desenvolvimento. Não coletamos informações pessoais por meio desta página. Os serviços externos possuem suas próprias regras e políticas.</div>
- </div>
+  <div class="container">
+    <div class="logo" style="color:white">VIVA Brasil 🇧🇷</div>
+    <p>Informação, oportunidades e cidadania para todos.</p>
+    <p>Este site é um projeto informativo independente. Não é um órgão do Governo Federal e não garante concessão de benefícios, vagas ou rendimentos. Confirme sempre as regras nos canais oficiais.</p>
+    <p>© <span id="ano"></span> VIVA Brasil</p>
+  </div>
 </footer>
 
 <script>
-const pages = {
- emprego:{
-  icon:"💼",title:"Empregos",sub:"Vagas e serviços para trabalhadores",
-  intro:"Organize sua procura de emprego e utilize canais confiáveis para encontrar informações e oportunidades.",
-  steps:[
-   "Prepare um currículo com seus dados de contato atualizados.",
-   "Consulte os serviços públicos de emprego e as oportunidades disponíveis.",
-   "Acompanhe as vagas para as quais se candidatou.",
-   "Desconfie de qualquer cobrança para garantir uma contratação."
-  ],
-  links:[
-   ["Carteira de Trabalho Digital","https://www.gov.br/trabalho-e-emprego/pt-br/servicos/trabalhador/carteira-de-trabalho"],
-   ["Portal de serviços do trabalho","https://servicos.mte.gov.br/"]
-  ]
- },
- cursos:{
-  icon:"🎓",title:"Cursos gratuitos",sub:"Aprendizagem e qualificação",
-  intro:"Cursos podem ajudar você a desenvolver habilidades para buscar novas oportunidades profissionais.",
-  steps:[
-   "Escolha uma área de interesse.",
-   "Confira se o curso é gratuito, os pré-requisitos e a carga horária.",
-   "Verifique se há certificado e quem oferece a formação.",
-   "Organize um horário de estudo que caiba na sua rotina."
-  ],
-  links:[
-   ["Escola Virtual de Governo","https://www.escolavirtual.gov.br/"],
-   ["Aprenda Mais — MEC","https://aprendamais.mec.gov.br/"]
-  ]
- },
- beneficios:{
-  icon:"🤝",title:"Benefícios sociais",sub:"Programas e assistência",
-  intro:"O acesso aos benefícios depende das regras de cada programa e da situação da família.",
-  steps:[
-   "Procure o CRAS da sua região para orientação sobre assistência social e Cadastro Único.",
-   "Pergunte quais documentos são necessários para o atendimento.",
-   "Confirme os requisitos nos canais oficiais.",
-   "Não pague intermediários que prometem aprovar benefícios."
-  ],
-  links:[
-   ["Ministério do Desenvolvimento Social","https://www.gov.br/mds/pt-br"],
-   ["Portal gov.br","https://www.gov.br/"]
-  ]
- },
- moradia:{
-  icon:"🏠",title:"Moradia e contas",sub:"Habitação e apoio local",
-  intro:"A prefeitura e os serviços responsáveis podem orientar sobre programas habitacionais e opções de atendimento.",
-  steps:[
-   "Consulte a prefeitura sobre programas disponíveis no município.",
-   "Procure a assistência social local se precisar de orientação.",
-   "Confira diretamente com a concessionária as opções relacionadas às contas.",
-   "Guarde protocolos e confira os boletos antes de pagar."
-  ],
-  links:[
-   ["Ministério das Cidades","https://www.gov.br/cidades/pt-br"],
-   ["Portal gov.br","https://www.gov.br/"]
-  ]
- },
- alimentacao:{
-  icon:"🥗",title:"Alimentação",sub:"Onde procurar apoio",
-  intro:"Se você ou sua família precisam de apoio alimentar, os serviços de assistência social podem indicar os recursos disponíveis na região.",
-  steps:[
-   "Entre em contato com o CRAS ou com a assistência social municipal.",
-   "Pergunte sobre cozinhas comunitárias, bancos de alimentos e benefícios eventuais disponíveis.",
-   "Confirme endereços e horários antes de se deslocar.",
-   "Explique sua situação para que o serviço possa orientar você."
-  ],
-  links:[
-   ["Ministério do Desenvolvimento Social","https://www.gov.br/mds/pt-br"],
-   ["Portal gov.br","https://www.gov.br/"]
-  ]
- },
- direitos:{
-  icon:"⚖️",title:"Direitos e serviços",sub:"Informações e canais públicos",
-  intro:"O canal adequado depende do assunto e de quem é responsável pelo serviço.",
-  steps:[
-   "Identifique o órgão federal, estadual ou municipal responsável.",
-   "Confira documentos, requisitos e canais de atendimento.",
-   "Guarde protocolos e comprovantes das suas solicitações.",
-   "Não compartilhe senhas, códigos bancários ou documentos em páginas públicas."
-  ],
-  links:[
-   ["Portal de serviços do governo","https://www.gov.br/"],
-   ["Conselho Nacional de Justiça","https://www.cnj.jus.br/"],
-   ["CERT.br — Segurança na Internet","https://cartilha.cert.br/"]
-  ]
- }
+const dados = {
+renda: {
+titulo:"Renda extra",
+descricao:"Ideias para começar com habilidades, tempo e recursos que você já tem.",
+itens:[
+["Ofereça serviços na sua região","Considere limpeza, jardinagem, pequenos reparos, aulas ou cuidados com animais, respeitando suas habilidades.","https://www.gov.br/empresas-e-negocios/pt-br/empreendedor","Orientação oficial",["inicio","oficial"]],
+["Aprenda habilidades digitais","Estude edição de vídeo, escrita, design, planilhas ou atendimento antes de oferecer serviços.","https://www.ev.org.br/","Cursos online",["online","inicio"]],
+["Venda itens usados","Separe produtos em bom estado, pesquise preços e combine pagamento e entrega com cuidado.","https://www.gov.br/mj/pt-br/assuntos/seus-direitos/consumidor","Dicas ao consumidor",["online","inicio"]],
+["Conheça o trabalho autônomo","Pesquise como formalizar uma atividade caso seu negócio cresça e confira as obrigações aplicáveis.","https://www.gov.br/empresas-e-negocios/pt-br/empreendedor","Portal oficial",["oficial"]]
+]},
+cursos:{
+titulo:"Faculdade e cursos gratuitos",
+descricao:"Aprenda novas habilidades e pesquise opções de graduação e qualificação.",
+itens:[
+["Sisu","Consulte regras, calendário e instituições participantes de cada edição.","https://acessounico.mec.gov.br/sisu","MEC",["oficial"]],
+["Escola Virtual de Governo","Cursos online em diferentes temas. Confira carga horária e condições de certificado.","https://www.escolavirtual.gov.br/","Cursos online",["online","inicio","oficial"]],
+["Fundação Bradesco — Escola Virtual","Explore cursos online em tecnologia, administração e desenvolvimento profissional.","https://www.ev.org.br/","Cursos online",["online","inicio"]],
+["CAPES e Universidade Aberta do Brasil","Consulte informações sobre cursos a distância em instituições públicas participantes.","https://www.gov.br/capes/","Fonte oficial",["oficial","online"]]
+]},
+economia:{
+titulo:"Economizar no dia a dia",
+descricao:"Organize gastos, compare preços e cuide melhor do orçamento.",
+itens:[
+["Educação financeira","Aprenda a organizar o orçamento, entender crédito e tomar decisões financeiras conscientes.","https://www.bcb.gov.br/cidadaniafinanceira","Banco Central",["oficial","inicio"]],
+["Direitos do consumidor","Consulte informações sobre compras, contratos e relações de consumo.","https://www.gov.br/mj/pt-br/assuntos/seus-direitos/consumidor","Fonte oficial",["oficial"]],
+["Tarifa Social de Energia","Confira critérios atuais e como verificar se sua família pode ter direito ao benefício.","https://www.gov.br/aneel/pt-br/assuntos/tarifas/tarifa-social","ANEEL",["oficial"]],
+["Monte um orçamento","Anote renda, despesas essenciais, dívidas e gastos variáveis. Revise semanalmente.","https://www.bcb.gov.br/cidadaniafinanceira","Comece aqui",["inicio"]]
+]},
+beneficios:{
+titulo:"Benefícios sociais",
+descricao:"Entenda programas sociais e confirme os critérios nos canais oficiais.",
+itens:[
+["Cadastro Único","Veja para que serve, como atualizar os dados e onde buscar atendimento.","https://www.gov.br/mds/pt-br/acoes-e-programas/cadastro-unico","Governo Federal",["oficial"]],
+["Bolsa Família","Consulte informações oficiais sobre o programa, critérios e atendimento.","https://www.gov.br/mds/pt-br/acoes-e-programas/bolsa-familia","Governo Federal",["oficial"]],
+["Serviços públicos digitais","Encontre serviços federais e confira os documentos necessários.","https://www.gov.br/pt-br/servicos","Gov.br",["oficial","online"]],
+["Evite golpes com benefícios","Não pague a terceiros para liberar benefício nem compartilhe senhas ou códigos.","https://www.gov.br/","Segurança",["oficial","inicio"]]
+]},
+empregos:{
+titulo:"Empregos",
+descricao:"Prepare-se para procurar vagas e acessar serviços de trabalho.",
+itens:[
+["Carteira de Trabalho Digital","Consulte orientações para acessar sua carteira de trabalho digital.","https://www.gov.br/pt-br/temas/carteira-de-trabalho-digital","Serviço oficial",["oficial","online"]],
+["Ministério do Trabalho e Emprego","Acesse informações sobre trabalho, emprego e qualificação profissional.","https://www.gov.br/trabalho-e-emprego/pt-br","Governo Federal",["oficial"]],
+["Prepare um currículo","Liste experiências, cursos, habilidades e contatos atualizados. Adapte o currículo à vaga.","https://www.gov.br/trabalho-e-emprego/pt-br","Orientação",["inicio"]],
+["Treine para entrevistas","Pesquise a empresa e prepare exemplos verdadeiros das suas habilidades.","https://www.escolavirtual.gov.br/","Desenvolva habilidades",["inicio","online"]]
+]},
+direitos:{
+titulo:"Direitos do cidadão",
+descricao:"Consulte serviços e orientações em fontes públicas e confiáveis.",
+itens:[
+["Portal de serviços do Governo Federal","Pesquise serviços, documentos, requisitos e canais de atendimento.","https://www.gov.br/pt-br/servicos","Gov.br",["oficial","online"]],
+["Direitos do consumidor","Busque informações sobre compras, contratos e consumo nos canais oficiais.","https://www.gov.br/mj/pt-br/assuntos/seus-direitos/consumidor","Fonte oficial",["oficial"]],
+["Informações sobre trabalho","Consulte orientações e serviços do Ministério do Trabalho e Emprego.","https://www.gov.br/trabalho-e-emprego/pt-br","Fonte oficial",["oficial"]],
+["FGTS","Consulte regras e serviços disponíveis no portal oficial.","https://www.fgts.gov.br/","Portal oficial",["oficial","online"]]
+]},
+empreender:{
+titulo:"Empreendedorismo",
+descricao:"Planeje uma atividade e conheça as obrigações antes de investir.",
+itens:[
+["Portal do Empreendedor","Confira orientações para MEI, atividades permitidas, formalização e obrigações.","https://www.gov.br/empresas-e-negocios/pt-br/empreendedor","Portal oficial",["oficial"]],
+["Aprenda antes de investir","Pesquise clientes, calcule custos e teste sua ideia em pequena escala.","https://www.escolavirtual.gov.br/","Capacitação",["inicio","online"]],
+["Venda com segurança","Descreva produtos com clareza, combine entrega e pagamento e proteja seus dados.","https://www.gov.br/mj/pt-br/assuntos/seus-direitos/consumidor","Orientação",["online","inicio"]]
+]},
+digital:{
+titulo:"Vida digital e segurança",
+descricao:"Use serviços online com segurança e reconheça sinais comuns de fraude.",
+itens:[
+["Serviços digitais do governo","Acesse serviços federais e confira instruções nos portais oficiais.","https://www.gov.br/pt-br/servicos","Gov.br",["oficial","online"]],
+["Proteja suas contas","Use senhas fortes e diferentes, ative autenticação em duas etapas e não compartilhe códigos.","https://www.gov.br/","Segurança",["inicio","online"]],
+["Desconfie de renda garantida","Promessas de lucro certo, cobranças antecipadas e pressão para agir podem indicar golpe.","https://www.gov.br/mj/pt-br/assuntos/seus-direitos/consumidor","Dicas ao consumidor",["inicio","oficial"]],
+["Aprenda habilidades digitais","Explore cursos online para melhorar suas competências digitais e profissionais.","https://www.ev.org.br/","Cursos online",["online","inicio"]]
+]}
 };
 
-function showPage(key,scroll){
- const p=pages[key]||pages.emprego;
- document.getElementById("contentIcon").textContent=p.icon;
- document.getElementById("contentTitle").textContent=p.title;
- document.getElementById("contentSub").textContent=p.sub;
- document.getElementById("contentIntro").textContent=p.intro;
- const steps=document.getElementById("contentSteps");
- steps.replaceChildren();
- p.steps.forEach(text=>{
-  const li=document.createElement("li");
-  li.textContent=text;
-  steps.appendChild(li);
- });
- const links=document.getElementById("contentLinks");
- links.replaceChildren();
- p.links.forEach(([label,url])=>{
-  const a=document.createElement("a");
-  a.className="link";a.href=url;a.target="_blank";a.rel="noopener noreferrer";
-  a.append(document.createTextNode(label));
-  const arrow=document.createElement("span");arrow.textContent="↗";
-  a.appendChild(arrow);links.appendChild(a);
- });
- document.querySelectorAll(".tile").forEach(btn=>{
-  btn.classList.toggle("active",btn.dataset.key===key);
- });
- if(scroll)document.getElementById("content").scrollIntoView({behavior:"smooth",block:"start"});
+let categoriaAtual = "renda";
+let filtroAtual = "todos";
+let buscaAtual = "";
+
+const $ = seletor => document.querySelector(seletor);
+const botoesCategoria = [...document.querySelectorAll(".categoria")];
+const botoesFiltro = [...document.querySelectorAll("[data-filtro]")];
+
+function escapar(texto) {
+  return String(texto).replace(/[&<>"']/g, caractere => ({
+    "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;"
+  })[caractere]);
 }
 
-document.querySelectorAll(".tile").forEach(btn=>{
- btn.addEventListener("click",()=>showPage(btn.dataset.key,true));
+function renderizar() {
+  const categoria = dados[categoriaAtual];
+  $("#tituloCategoria").textContent = categoria.titulo;
+  $("#descricaoCategoria").textContent = categoria.descricao;
+  $("#tituloResultados").textContent = buscaAtual ? "Resultados da busca" : categoria.titulo;
+
+  botoesCategoria.forEach(botao => {
+    botao.classList.toggle("ativa", botao.dataset.cat === categoriaAtual);
+  });
+
+  let itens = [];
+  Object.entries(dados).forEach(([chave, grupo]) => {
+    grupo.itens.forEach(item => {
+      const texto = item.slice(0, 4).join(" ").toLocaleLowerCase("pt-BR");
+      const correspondeBusca = !buscaAtual || texto.includes(buscaAtual.toLocaleLowerCase("pt-BR"));
+      const correspondeCategoria = buscaAtual || chave === categoriaAtual;
+      const correspondeFiltro = filtroAtual === "todos" || item[4].includes(filtroAtual);
+      if (correspondeBusca && correspondeCategoria && correspondeFiltro) itens.push(item);
+    });
+  });
+
+  const listaUnica = [];
+  itens.forEach(item => {
+    if (!listaUnica.some(existente => existente[0] === item[0])) listaUnica.push(item);
+  });
+
+  $("#contagem").textContent = listaUnica.length + " opção(ões) encontrada(s)";
+
+  $("#lista").innerHTML = listaUnica.length
+    ? listaUnica.map(item => `
+      <article class="recurso">
+        <span class="selo">${escapar(item[3])}</span>
+        <h3>${escapar(item[0])}</h3>
+        <p>${escapar(item[1])}</p>
+        <a href="${item[2]}" target="_blank" rel="noopener noreferrer">Acessar recurso ↗</a>
+      </article>
+    `).join("")
+    : '<p class="vazio">Nenhum resultado encontrado. Tente outras palavras ou altere o filtro.</p>';
+}
+
+botoesCategoria.forEach(botao => {
+  botao.addEventListener("click", () => {
+    categoriaAtual = botao.dataset.cat;
+    filtroAtual = "todos";
+    buscaAtual = "";
+    $("#campoBusca").value = "";
+    botoesFiltro.forEach(f => f.classList.toggle("ativo", f.dataset.filtro === "todos"));
+    renderizar();
+    document.querySelector(".area").scrollIntoView({ behavior: "smooth", block: "start" });
+  });
 });
 
-document.getElementById("searchForm").addEventListener("submit",event=>{
- event.preventDefault();
- const q=document.getElementById("searchInput").value.trim().toLowerCase();
- if(!q){document.getElementById("searchInput").focus();return}
- const rules=[
-  [/emprego|trabalho|vaga|curr[ií]culo|carteira|sal[aá]rio/,"emprego"],
-  [/curso|estud|escola|aprender|certificado|qualifica[cç][aã]o/,"cursos"],
-  [/benef[ií]cio|bolsa fam[ií]lia|cad[uú]nico|cras|aux[ií]lio/,"beneficios"],
-  [/casa|moradia|aluguel|habita[cç][aã]o|[aá]gua|energia|luz/,"moradia"],
-  [/comida|fome|alimenta[cç][aã]o|cesta b[aá]sica/,"alimentacao"],
-  [/direito|documento|servi[cç]o|defensoria|den[uú]ncia|golpe|fraude|seguran[cç]a/,"direitos"]
- ];
- const match=rules.find(([pattern])=>pattern.test(q));
- showPage(match?match[1]:"direitos",true);
+botoesFiltro.forEach(botao => {
+  botao.addEventListener("click", () => {
+    filtroAtual = botao.dataset.filtro;
+    buscaAtual = "";
+    botoesFiltro.forEach(f => f.classList.toggle("ativo", f === botao));
+    renderizar();
+  });
 });
 
-showPage("emprego",false);
+$("#formBusca").addEventListener("submit", evento => {
+  evento.preventDefault();
+  buscaAtual = $("#campoBusca").value.trim();
+  filtroAtual = "todos";
+  botoesFiltro.forEach(f => f.classList.toggle("ativo", f.dataset.filtro === "todos"));
+  renderizar();
+  document.querySelector(".area").scrollIntoView({ behavior: "smooth", block: "start" });
+});
+
+$("#ano").textContent = new Date().getFullYear();
+renderizar();
 </script>
 </body>
 </html>
